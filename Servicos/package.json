@@ -9,7 +9,8 @@
   "author": "MFH",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "angularfire2": "^5.0.0-rc.10",
+    "body-parser": "^1.18.3",
     "consign": "^0.1.6",
     "ejs": "^2.6.1",
     "express": "^4.16.3",

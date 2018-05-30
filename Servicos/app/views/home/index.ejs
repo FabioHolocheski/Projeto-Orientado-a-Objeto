@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 	<html lang="pt-br">
 		<head>
 			<meta charset="utf-8"/>
@@ -7,6 +7,34 @@
 	<body>
 
 		<h1>Bem vindo a página inicial</h1>
+	
+<%= email %>
+<br>
+<%= senha %>
+<form id="formDeSubmit" name="formDeSubmit" accept-charset="UTF-8" role="form" class="form-signin"  method="post">
+	<input type="text" class="form-control" id="emailInput" name="emailInput" value="<%= email %>">
+	
+</form>
+
+
+<button class="btn btn-lg btn-block btn-primary" id="BotaoServicos">servicos</button><br>
+<button class="btn btn-lg btn-block btn-primary" id="BotaoAdmin">admin</button><br>
+
+<script>
+	BotaoServicos.addEventListener('click', function(){   
+			document.formDeSubmit.action = "/servicos";
+		 	document.formDeSubmit.submit();  
+		   //document.getElementById("formDeSubmit").submit();
+
+});
+BotaoAdmin.addEventListener('click', function(){   
+			document.formDeSubmit.action = "/formulario_inclusao_servico";
+		 	document.formDeSubmit.submit();  
+		   //document.getElementById("formDeSubmit").submit();
+
+});
+</script>
 
 	</body>
+
 </html>
