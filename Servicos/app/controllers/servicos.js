@@ -26,8 +26,14 @@ var connection = application.config.dbConnection(application, req, res);
 
 		var id_servico = req.query;		
 
+		var dadosForm = req.body;
+	var email = req.body.emailInput;
+	var senha = req.body.passwordInput;
+
+	console.log(email)
+
 		servicosModel.getServico(id_servico, function(error, result){
-			res.render("servicos/servico", {servico : result});
+			res.render("servicos/servico", {servico : result, email : email});
 		});
 
 }

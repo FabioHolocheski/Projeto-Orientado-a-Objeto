@@ -3,38 +3,74 @@
 		<head>
 			<meta charset="utf-8"/>
 			<title>Fast Service</title>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+			
 		</head>
-	<body>
+	 <body style="background-color: #e9e9e9;background-position:center;  background-image: url(images/servicosFundoc.png);
+	background-repeat: no-repeat;" >
+
+		<nav  class="navbar navbar-expand-lg navbar-dark bg-dark " >
+				
+			<form class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="formDeSubmit" name="formDeSubmit" accept-charset="UTF-8" role="form"   method="post">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<img src="images/logo.png"  height="11%"/>
+			<input class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active "  type="text"  id="emailInput" name="emailInput" value="<%= email %>" style="background-color: transparent; border: 0; color: white;"  >
+			<div class="nav nav-pills nav-fill" id="navbarNavAltMarkup" >
+				
+			  <div class="navbar-nav">
+				<a class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoHome" href="#">Home <span class="sr-only">(current)</span></a>
+				<a  class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoServicos" href="#">Serviços <span class="sr-only">(current)</span></a>
+				<a  class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoMeusServicos" href="#">Meus Serviços <span class="sr-only">(current)</span></a>
+				<a class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoAdmin" href="#">Novo Serviço <span class="sr-only">(current)</span></a>
+
+				
+			  </div>
+			</div>
+			
+		</form>
+
+		<script>
+			
+		BotaoHome.addEventListener('click', function(){   
+					document.formDeSubmit.action = "/home";
+					 document.formDeSubmit.submit();  
+				   //document.getElementById("formDeSubmit").submit();
+		
+		});
+		BotaoServicos.addEventListener('click', function(){   
+					document.formDeSubmit.action = "/servicos";
+					 document.formDeSubmit.submit();  
+				   //document.getElementById("formDeSubmit").submit();
+		
+		});
+		BotaoMeusServicos.addEventListener('click', function(){   
+					document.formDeSubmit.action = "/meusservicos";
+					 document.formDeSubmit.submit();  
+				   //document.getElementById("formDeSubmit").submit();
+		
+		});
+		BotaoAdmin.addEventListener('click', function(){   
+					document.formDeSubmit.action = "/formulario_inclusao_servico";
+					 document.formDeSubmit.submit();  
+				   //document.getElementById("formDeSubmit").submit();
+		
+		});
+
+
+		</script>
+		  </nav>
+
+
 
 		<h1>Bem vindo a página inicial</h1>
 	
-<%= email %>
-<br>
-<%= senha %>
-<form id="formDeSubmit" name="formDeSubmit" accept-charset="UTF-8" role="form" class="form-signin"  method="post">
-	<input type="text" class="form-control" id="emailInput" name="emailInput" value="<%= email %>">
-	
-</form>
 
 
-<button class="btn btn-lg btn-block btn-primary" id="BotaoServicos">servicos</button><br>
-<button class="btn btn-lg btn-block btn-primary" id="BotaoAdmin">admin</button><br>
-
-<script>
-	BotaoServicos.addEventListener('click', function(){   
-			document.formDeSubmit.action = "/servicos";
-		 	document.formDeSubmit.submit();  
-		   //document.getElementById("formDeSubmit").submit();
-
-});
-BotaoAdmin.addEventListener('click', function(){   
-			document.formDeSubmit.action = "/formulario_inclusao_servico";
-		 	document.formDeSubmit.submit();  
-		   //document.getElementById("formDeSubmit").submit();
-
-});
-</script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 	</body>
 
 </html>

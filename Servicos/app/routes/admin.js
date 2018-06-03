@@ -8,7 +8,13 @@ module.exports = function(application){
 	});
 
 	application.post('/servicos/salvar', function(req, res){
-		application.app.controllers.admin.noticias_salvar(application, req, res);
+		application.app.controllers.admin.servico_salvar(application, req, res);
 
 	});
+	application.get('/servicos/salvar', function(req, res){
+		application.app.controllers.admin.servico_salvar(application, req, res);
+
+	});
+
+
 };
