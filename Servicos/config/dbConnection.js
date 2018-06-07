@@ -5,7 +5,7 @@ var connMySQL = function(){
 		host : 'localhost',
 		user : 'root',
 		password : '',
-		database : 'portal_servicos'
+		database : 'servicos'
 	});
 }
 

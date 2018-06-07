@@ -16,7 +16,7 @@ module.exports = function(application){
 	application.post('/servico', function(req, res){
 		application.app.controllers.servicos.servico(application, req, res);
 	});
-	
+
 	
 	
 };

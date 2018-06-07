@@ -10,21 +10,15 @@ module.exports.formulario_inclusao_servico = function(application, req, res){
 
 module.exports.servico_salvar = function(application, req, res){
 	var servico = req.body;	
-	var dadosForm = req.body;
-	var email = req.body.emailInput;
-	var senha = req.body.passwordInput;
-
-		
-
+	
 		var connection = application.config.dbConnection();
 		var servicosModel = new application.app.models.ServicosDAO(connection);
 
 		servicosModel.salvarServico(servico, function(error, result){
-			
+			console.log(servico)
 			
 			});		
 		
 
 			
-			//res.redirect('back');	
 }

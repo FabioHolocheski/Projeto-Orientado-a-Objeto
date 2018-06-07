@@ -36,7 +36,8 @@
 	</form>
 
 	<script>
-		
+
+
 		logOutButton.addEventListener('click', function(){   
 					document.formDeSubmit.action = "/";
 					 document.formDeSubmit.submit();  
@@ -57,25 +58,24 @@
 		<br>
 
 	    <div class="container">
-	    	<div class="row">
-	    		<div class="col-md-12">
-	    			<div class="noticia_wrapper">
-								<label for="titulo">Servico:</label>
-							<a class="noticia_titulo"><%= servico[0].servico%></a>
-							<br>
-							
-							<span class="noticia_data">Categoria: <%= servico[0].categoria%></span>
-							
-		    			<br />
-		    			<p class="noticia_resumo">
-								Descriçao: <br>
-		    				<%= servico[0].descricao%>
-							</p>
-							<span class="noticia_data">valor: R$ <%= servico[0].valor%></span>
-		    		</div>
-		    	</div>
-	    	</div>
-	    </div>
+				<% if(servicos.length > 0){%>
+	
+					<%for(var i = 0; i < servicos.length; i++) {%>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="noticia_wrapper">
+										  
+								<a href="servico?id_servico=<%= servicos[i].id_servico %>" class="noticia_titulo">Serviço: <%= servicos[i].servico%></a>
+								<span class="noticia_data">Categoria: <%= servicos[i].categoria%></span>
+								<br />
+								<p class="noticia_resumo">
+									Descrição: <%= servicos[i].descricao%>
+								</p>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% } %>
 	
 		
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -48,14 +48,12 @@
         </form>
     
             
-        <button class="btn btn-lg btn-block btn-primary" id="authEmailPassButton">Autenticar</button><br>
+        <button class="btn btn-lg btn-block btn-primary" id="authEmailPassButton">Log in</button><br>
         <button class="btn btn-lg btn-block btn-primary" id="createUserButton">Criar nova conta</button><br>
-        <button class="btn btn-lg btn-block btn-primary" id="authGoogleButton">Autenticar com Gmail</button>
+        <button class="btn btn-lg btn-block btn-danger" id="authGoogleButton">Log in com Gmail</button>
             
             <br>
-            <p class="text-center">
-                    <button class="btn btn-lg btn-block btn-block " id="logOutButton">Sair</button>
-            </p>
+            
            
         </div>
 
@@ -122,8 +120,7 @@ authEmailPassButton.addEventListener('click', function(){
         .signInWithEmailAndPassword(emailInput.value, passwordInput.value)
         .then(function(result){
             console.log(result);
-           
-           alert('Autenticado ' + emailInput.value);
+
            document.getElementById("formDeSubmit").submit();
             
            
@@ -142,19 +139,6 @@ createUserButton.addEventListener('click', function(){
 
 });
 
-
-////
-logOutButton.addEventListener('click', function () {
-    firebase
-        .auth()
-        .signOut()
-        .then(function () {
-            
-            alert('Você se deslogou');
-        }, function (error) {
-            console.error(error);
-        });
-});
 
 
 authGoogleButton.addEventListener('click', function () {
