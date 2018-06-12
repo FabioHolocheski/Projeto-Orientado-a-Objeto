@@ -18,6 +18,12 @@
         <link rel="shortcut icon" href="images/favicon.ico" />
         
         <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+
+        <script type="text/javascript">
+            window.onload = function(){
+                tipoPessoaSel(1);
+            }
+            </script>
 	</head>
 
     
@@ -34,14 +40,47 @@
                 <h1 class="text-center">Fast Service</h1>
                      
             <br>
-            <form id="formDeSubmit" accept-charset="UTF-8" role="form" class="form-signin" action="/home" method="post"  >
+
+            <form id="form" onchange="exibir_ocultar()">
+                <input type='radio' checked="checked" name='tipousuario' onload="tipoPessoaSel()" onclick="tipoPessoaSel();"  id='empresa'> empresa
+                <input type='radio' name='tipousuario' onclick="tipoPessoaSel();" id='usuario'> Usuario
                
-               <fieldset>
+           </form>
+
+           
+
+           <script>
+               function tipoPessoaSel() {
+                         var escolha = document.getElementById("usuario").checked;
+                         if (escolha) {
+                            document.getElementById("authGoogleButton").style.display = "block";
+                            document.getElementById("emailInput").style.display = "none";
+                            document.getElementById("passwordInput").style.display = "none";
+                            document.getElementById("authEmailPassButton").style.display = "none";
+                            document.getElementById("createUserButton").style.display = "none";
+                            document.getElementById("labelEmail").style.display = "none";
+                            document.getElementById("labelSenha").style.display = "none";
+
+                         } else {
+                            document.getElementById("authGoogleButton").style.display = "none";
+                            document.getElementById("emailInput").style.display = "block";
+                            document.getElementById("passwordInput").style.display = "block";
+                            document.getElementById("authEmailPassButton").style.display = "block";
+                            document.getElementById("createUserButton").style.display = "block";
+                            document.getElementById("labelEmail").style.display = "block";
+                            document.getElementById("labelSenha").style.display = "block";
+                        }
+                    }
+           </script>
+            <form id="formDeSubmit" accept-charset="UTF-8" role="form" class="form-signin" action="/home" method="post"  >
                 
-                    <label class="panel-login">E-mail</label>
+                    
+            <fieldset>
+                
+                    <label class="panel-login" id="labelEmail">E-mail</label>
                     <input type="text" class="form-control" id="emailInput" name="emailInput" placeholder="E-mail">
                     <br>
-                    <label class="panel-login">Senha</label>
+                    <label class="panel-login" id="labelSenha">Senha</label>
                     <input type="password" class="form-control" id="passwordInput" name="passwordInput" placeholder="Senha">
                    
             </fieldset>
@@ -50,7 +89,7 @@
             
         <button class="btn btn-lg btn-block btn-primary" id="authEmailPassButton">Log in</button><br>
         <button class="btn btn-lg btn-block btn-primary" id="createUserButton">Criar nova conta</button><br>
-        <button class="btn btn-lg btn-block btn-danger" id="authGoogleButton">Log in com Gmail</button>
+        <button class="btn btn-lg btn-block btn-danger"  id="authGoogleButton">Log in com Gmail</button>
             
             <br>
             

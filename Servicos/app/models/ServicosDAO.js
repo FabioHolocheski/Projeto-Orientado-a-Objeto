@@ -20,16 +20,20 @@ ServicosDAO.prototype.mostrarServicos = function(email, callback){
 		this._connection.query('select * from servico where usuario = "'+email+'"', callback);
 }
 
-ServicosDAO.prototype.pesquisa = function(categoria, descricao, callback){
-		this._connection.query('select * from servico where categoria = "'+categoria+'" and descricao LIKE "%'+descricao+'%"',callback );
+ServicosDAO.prototype.pesquisa = function(categoria, servico, callback){
+		this._connection.query('select * from servico where categoria = "'+categoria+'" and servico LIKE "%'+servico+'%"',callback );
 }
 
-ServicosDAO.prototype.pesquisa2 = function(descricao, callback){
-	this._connection.query('select * from servico where descricao LIKE "%'+descricao+'%"',callback );
+ServicosDAO.prototype.pesquisa2 = function(servico, callback){
+	this._connection.query('select * from servico where servico LIKE "%'+servico+'%"',callback );
 }
 
 ServicosDAO.prototype.pesquisa1 = function( categoria, callback){
 	this._connection.query('select * from servico where categoria = "'+categoria+'"',callback );
+}
+
+ServicosDAO.prototype.pesquisa3 = function(usuario, callback){
+	this._connection.query('select * from servico where usuario LIKE "%'+usuario+'%"',callback );
 }
 
 ServicosDAO.prototype.salvarServico = function(servico, callback){

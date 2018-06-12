@@ -12,11 +12,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-		<script type="text/javascript">
-			window.onload = function(){
-				mostrarBotao(1);
-			}
-			</script>
+		
 
 	</head>
 
@@ -36,11 +32,7 @@
 			<div class="nav nav-pills nav-fill" id="navbarNavAltMarkup" >
 				
 					<div class="navbar-nav">
-							<a class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoHome" href="#"><i class="fas fa-home"> Home</i>  <span class="glyphicon glyphicon-plus"></span></a>
-							<a  class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoServicos" href="#"><i class="fas fa-clipboard-list"> Serviços</i>  <span class="glyphicon glyphicon-plus"></span></a>
-							<a  class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoMeusServicos" href="#"><i class="fab fa-black-tie"> Meus Serviços</i> <span class="sr-only">(current)</span></a>
-							<a class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " id="BotaoAdmin" href="#"><i class="far fa-plus-square"> Novo Serviço</i>  <span class="sr-only">(current)</span></a>
-							<a class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active " style="position: absolute; left: 110%;"  id="logOutButton" href="#"><i class="fas fa-door-open"> Sair</i></a>
+							<a class="navbar navbar-expand-lg navbar-dark bg-dark nav-item nav-link active "   id="logOutButton" href="#"><i class="fas fa-door-open"> Sair</i></a>
 
 						</div>
 			</div>
@@ -83,27 +75,24 @@
 
 		</script>
 		  </nav>
+		  <br>
+		  <a href="#" style="position: absolute;  left: 10%; " onclick="atualizarPagina()" class="btn btn-primary navbar-btn" ><i class="fas fa-sync-alt"> Atualizar Serviços</i> </a>
+			<script>
+				function atualizarPagina(){
+				  location.reload();
+				}
+			   
+			</script>
+			<br>
+			<br>
 		<br>
 		<form  id="formPesquisar" name="formPesquisar"   method="POST">
 			
 
 			<center><div  >
-				<label for="titulo">Categoria:</label>
-				<select  id="categoria" name="categoria">
-						<option value=""></option>
-						<option value="Outros">Outros</option>
-						<option value="Advocacia">Advocacia</option>
-						<option value="Odontologia">Odontologia</option>
-						<option value="Estética">Estética</option>
-						<option value="Consultório">Consultório</option>
-						
-				</select>
-
-				<label for="pwd">Serviços:</label>
-				<input type="text"  id="servico" name="servico">
+				<label for="pwd">Usuario:</label>
+				<input type="text"  id="usuario" name="usuario">
 			
-				
-
 			<a class="btn btn-primary navbar-btn" onclick="BotaoPesquisar()"   href="#"><i class="fas fa-search"> </i> <span class="sr-only">(current)</span></a>
 			</div>
 		</center>
@@ -111,44 +100,14 @@
 
 		<script>
 
-function mostrarBotao() {
-                         escolha = document.getElementById("emailInput").value;
-                         if (escolha == "") {
-							document.getElementById("BotaoHome").style.display = "block";
-							document.getElementById("BotaoServicos").style.display = "block";
-                            document.getElementById("BotaoMeusServicos").style.display = "none";
-                            document.getElementById("BotaoAdmin").style.display = "none";
-                            document.getElementById("logOutButton").style.display = "block";
-                            
-
-                         } else if(escolha !='') {
-							document.getElementById("BotaoHome").style.display = "block";
-							document.getElementById("BotaoServicos").style.display = "block";
-                            document.getElementById("BotaoMeusServicos").style.display = "block";
-                            document.getElementById("BotaoAdmin").style.display = "block";
-                            document.getElementById("logOutButton").style.display = "block";
-                            
-                        }
-                    }
-
-
 
 				function BotaoPesquisar(){
-								if (document.formPesquisar.categoria.value !='' && document.formPesquisar.servico.value !='')  {  
-									document.formPesquisar.action="/pesquisa";
-									document.formPesquisar.submit();  
-								}
-								else if(document.formPesquisar.categoria.value !='' && document.formPesquisar.servico.value =='')  {  
-									document.formPesquisar.action="/pesquisa1";
-									document.formPesquisar.submit();  
-								}
-								else if (document.formPesquisar.categoria.value =='' && document.formPesquisar.servico.value !='')  {  
-									document.formPesquisar.action="/pesquisa2";
-									document.formPesquisar.submit();  
-								}
-								else{
-									
-								alert("Campos estão vazios!");  
+								
+							 if (document.formPesquisar.usuario.value !='')  {  
+									document.formPesquisar.action="/pesquisa3";
+									document.formPesquisar.submit(); 
+								}else{
+								alert("Campo esta vazios!");  
 								}
 								
 							}
@@ -171,6 +130,11 @@ function mostrarBotao() {
 		    			<p class="noticia_resumo">
 		    				Descrição: <%= servicos[i].descricao%>
 						</p>
+						<p class="noticia_resumo">
+								Usuario: <%= servicos[i].usuario%>
+							</p>
+						<a href="meusservicos/del?id_servico=<%= servicos[i].id_servico %>" style="position: absolute; top: 60%; left: 80%; " class="btn btn-danger navbar-btn"    href="#"><i class="far fa-trash-alt"> Deletar</i> </a>
+						
 						
 						
 		    		</div>
