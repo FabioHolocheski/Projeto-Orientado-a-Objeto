@@ -10,3 +10,17 @@ para entrar como empresa necessita criar conta com email e senha (senha com no m
 
 para entrar como usuario necessita de uma conta google.
 
+logins já cadastrados:
+
+email: mate@gmail.com
+senha: 123456
+
+email: fabio2@gmail.com
+senha: 123456
+
+email: hique@gmail.com
+senha: 123456
+
+
+
+
